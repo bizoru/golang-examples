@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import ("fmt";"flag";"reflect")
 
 // This is a comment
 /*
@@ -9,8 +9,7 @@ This is my own guide to learn Go
 
 func main()  {
     fmt.Println("Hello World")
-    exercice10()
-
+    exercice14()
 }
 
 func other(){
@@ -118,4 +117,60 @@ func multipleValues(arg int) (int,string)  {
 
 func zero(numero *int){
     *numero = 0
+}
+
+
+
+type Human struct {
+ name string
+ age int
+}
+
+type Team struct {
+  Human
+  TeamName string
+}
+
+func (h *Human) canonicalName(){
+    fmt.Println("The name of the human is:",h.name," the age of the human is: ",h.age)
+}
+
+func exercice11(){
+
+  steven := new(Human)
+  steven.name = "Steven"
+  steven.age = 27
+  fmt.Println(steven.name,steven.age)
+  steven.canonicalName()
+
+}
+
+func exercice12(){
+    t := new(Team)
+    t.Human.name = "Steven"
+    t.Human.age = 23
+    fmt.Println(t.Human.name)
+    t.canonicalName() // Both Work the same way
+    t.Human.canonicalName()
+}
+
+func dummyFor(limit int){
+  for i :=0; i < 10;i++ {
+    fmt.Println("Iterator name:",i,limit)
+  }
+}
+
+func exercice13(){
+  go dummyFor(5)
+  go dummyFor(10)
+}
+
+func exercice14 (){
+  flag.Parse()
+  args := flag.Args()
+  if len(args) > 0 {
+
+  }
+
+
 }
