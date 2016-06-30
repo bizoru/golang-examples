@@ -15,6 +15,10 @@ func main() {
 	EjemploCriptografia()
 }
 
+func suma(a int, b int) int {
+	return a + b
+}
+
 func other() {
 	fmt.Println("Helloooo!")
 	fmt.Println("1+1=", 1+1)
